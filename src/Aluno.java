@@ -2,7 +2,7 @@ public class Aluno {
 
     private String nome;
     private int anoNascimento;
-    private double cra;
+    private double cra; // comentario
 
     public Aluno(String nome, int anoNascimento) {
         this.nome = nome;
