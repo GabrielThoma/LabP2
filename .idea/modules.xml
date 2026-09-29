@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/LabP2.iml" filepath="$PROJECT_DIR$/LabP2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/coISA/coISA.iml" filepath="$PROJECT_DIR$/coISA/coISA.iml" />
     </modules>
   </component>
 </project>
