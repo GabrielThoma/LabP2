@@ -9,7 +9,7 @@ public class Coisa {
         registrarResumos();
     }
     public static void registrarDescanso() {
-        Descanso descanso = new Descanso();
+        descanso descanso = new descanso();
         System.out.println(descanso.getStatusGeral());
         descanso.defineHorasDescanso(30);
         descanso.defineNumeroSemanas(1);
@@ -22,7 +22,7 @@ public class Coisa {
         System.out.println(descanso.getStatusGeral());
     }
     private static void registrarTempoOnline() {
-        RegistroTempoOnline tempoLP2 = new RegistroTempoOnline("LP2", 30);
+        RegistroTempoOnline tempoLP2 = new RegistroTempoOnline("LP2", 30); // esse construtor cria uma classe "LP2" com numero de horas em 30
         tempoLP2.adicionaTempoOnline(10);
         System.out.println(tempoLP2.atingiuMetaTempoOnline());
         tempoLP2.adicionaTempoOnline(10);
