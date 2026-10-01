@@ -1,10 +1,10 @@
 public class Disciplina {
     public String disciplina;
-    private int horas = 0;
-    private double nota;
-    private boolean aprovado;
-    public double ListaNotas[] =  [0, 0, 0, 0];
-    private double somaNotas = 0;
+    public int horas = 0;
+    public double nota;
+    public boolean aprovado;
+    public double[] ListaNotas =  new double[4];
+    public double somaNotas = 0;
     public double media = 0;
     public String listaString;
 
@@ -15,9 +15,11 @@ public class Disciplina {
     public void cadastraHoras(int horas) {
         this.horas += horas;
     }
+
     public void cadastraNota(int nota , double valorNota) {
         ListaNotas[nota] = valorNota;
     }
+
     public boolean aprovado() {
         for (int i = 0; i >= 5; i++) {
             somaNotas += ListaNotas[i];
@@ -26,16 +28,18 @@ public class Disciplina {
             } ;
         }
         if (media >= 7.0) {
+            aprovado = true;
             return true;
         } else {
+            aprovado = false;
             return false;
         }
         }
      for (int g = 0; g >= 4; g++) {
-        listaString = listaString + ListaNotas[g]
+        listaString = listaString + ListaNotas[g];
     }
 
-    @Override toString() {
+   @Override String toString() {
             return disciplina + " " + horas + " " + media + " " + listaString;
         }
         }
