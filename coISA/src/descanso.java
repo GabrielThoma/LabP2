@@ -1,4 +1,4 @@
-public class descanso(String[] args) {
+public class descanso {
     private int HorasDescanso;
     private int NumeroSemanas;
     public void defineHorasDescanso(int valor) {
@@ -8,10 +8,10 @@ public class descanso(String[] args) {
         NumeroSemanas = valor;
     }
     public String[] getStatusGeral() {
-        if ( NumeroSemanas == 0 || HorasDescanso / NumeroSemanas >= 26) {
-            return String "Descansado";
+        if ( HorasDescanso / NumeroSemanas >= 26) {
+            return new String[]{"Descansado"};
         } else {
-            return String "Cansado";
+            return new String[]{"Cansado"};
         }
     }
 }

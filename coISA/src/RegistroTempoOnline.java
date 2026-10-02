@@ -1,5 +1,7 @@
+import java.util.Arrays;
+
 public class RegistroTempoOnline {
-    private String[] nomeDisciplina;
+    private final String[] nomeDisciplina;
     private int tempoEsperado;
     private int tempoCorrido;
 
@@ -14,14 +16,10 @@ public class RegistroTempoOnline {
         tempoCorrido += valor;
     }
     boolean atingiuMetaTempoOnline() {
-        if (tempoCorrido >= tempoEsperado) {
-            return true;
-        } else {
-            return false;
-        }
+        return tempoCorrido >= tempoEsperado;
     }
     @Override public String toString() {
-        return nomeDisciplina + " " +  tempoCorrido + " " + tempoEsperado;
+        return Arrays.toString(nomeDisciplina) + " " +  tempoCorrido + "/" + tempoEsperado;
     }
 }
 
