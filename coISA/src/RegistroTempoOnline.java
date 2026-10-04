@@ -1,25 +1,26 @@
-import java.util.Arrays;
-
 public class RegistroTempoOnline {
-    private final String[] nomeDisciplina;
+    private String nomeDisciplina;
     private int tempoEsperado;
     private int tempoCorrido;
 
-    public RegistroTempoOnline(String[] nomeDisciplina) {
-        this.nomeDisciplina = nomeDisciplina;
+    public RegistroTempoOnline(String nomeDisciplina) {
+        this(nomeDisciplina,120);
     }
-    public RegistroTempoOnline(String[] nomeDisciplina , int tempoOnlineEsperado) {
+    public RegistroTempoOnline(String nomeDisciplina , int tempoOnlineEsperado) {
         this.nomeDisciplina = nomeDisciplina;
         this.tempoEsperado = tempoOnlineEsperado;
+        this.tempoCorrido = 0;
     }
-    void adicionaTempoOnline(int valor) {
-        tempoCorrido += valor;
+
+    public void adicionaTempoOnline(int valor) {
+        this.tempoCorrido += valor;
     }
-    boolean atingiuMetaTempoOnline() {
-        return tempoCorrido >= tempoEsperado;
+
+    public boolean atingiuMetaTempoOnline() {
+        return this.tempoCorrido >= this.tempoEsperado;
     }
     @Override public String toString() {
-        return Arrays.toString(nomeDisciplina) + " " +  tempoCorrido + "/" + tempoEsperado;
+        return this.nomeDisciplina + " " + this.tempoCorrido + "/" + this.tempoEsperado;
     }
 }
 

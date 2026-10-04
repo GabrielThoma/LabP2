@@ -1,37 +1,66 @@
 public class RegistroResumos {
-    public int numeroDeResumos;
-    public int n;
-    public int qtdResumos;
+    private int numeroDeResumos;
+    private int n;
+    private int qtdResumos;
+    private String[] temas;
+    private String[] resumos;
 
-    RegistroResumos(int numeroDeResumos) {
+    public RegistroResumos(int numeroDeResumos) {
         this.numeroDeResumos = numeroDeResumos;
+        this.temas = new String[numeroDeResumos];
+        this.resumos = new String[numeroDeResumos];
+        this.n = 0;
+        this.qtdResumos = 0;
     }
-    public String[] temas = new String[numeroDeResumos];
 
-    public String[] resumos = new String[numeroDeResumos] ;
+    public void adiciona(String tema, String conteudo) {
+        String resumo = tema + ": " + conteudo;
 
-    public void adiciona(String tema, String Conteudo) {
-        String resumo = tema + ":" + Conteudo;
-        resumos[n] = resumo;
+        for (int i = 0; i < qtdResumos; i++) {
+            if (temas[i].equals(tema)) {
+                resumos[i] = resumo;
+                return;
+            }
+        }
+
         temas[n] = tema;
-        qtdResumos ++;
-        if (n>= numeroDeResumos) {
-            n = 0;
-        }else {
-            n++;
+        resumos[n] = resumo;
+        n = (n + 1) % numeroDeResumos;
+
+        if (qtdResumos < numeroDeResumos) {
+            qtdResumos++;
         }
     }
+
+    public String[] pegaResumos() {
+        String[] resultado = new String[qtdResumos];
+        for (int i = 0; i < qtdResumos; i++) {
+            resultado[i] = resumos[i];
+        }
+        return resultado;
+    }
+
+    public String imprimeResumos() {
+        String saida = qtdResumos + " resumo(s) cadastrado(s)\n";
+        for (int i = 0; i < qtdResumos; i++) {
+            saida += temas[i];
+            if (i < qtdResumos - 1) {
+                saida += " | ";
+            }
+        }
+        return saida;
+    }
+
     public int conta() {
         return qtdResumos;
     }
-    public String [] pegaResumos() {
-    }
-    public String[] imprimeResumos() {
-        return System.out.println(qtdResumos + "resumo(s) cadastrado(s)");
-        for (int i ; i >= qtdResumos ; i ++) {
-            System.out.println(temas[i] + " | ");
-        }
-        }
-    }
 
-
+    public boolean temResumo(String tema) {
+        for (int i = 0; i < qtdResumos; i++) {
+            if (temas[i].equals(tema)) {
+                return true;
+            }
+        }
+        return false;
+    }
+}

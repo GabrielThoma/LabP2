@@ -2,16 +2,20 @@ public class descanso {
     private int HorasDescanso;
     private int NumeroSemanas;
     public void defineHorasDescanso(int valor) {
-        HorasDescanso = valor;
+        this.HorasDescanso = valor;
     }
     public void defineNumeroSemanas(int valor) {
-        NumeroSemanas = valor;
+        this.NumeroSemanas = valor;
     }
-    public String[] getStatusGeral() {
-        if ( HorasDescanso / NumeroSemanas >= 26) {
-            return new String[]{"Descansado"};
+    public String getStatusGeral() {
+        if (this.NumeroSemanas <= 0) {
+            return "cansado";
+        }
+
+        if ( this.HorasDescanso / this.NumeroSemanas >= 26) {
+            return "Descansado";
         } else {
-            return new String[]{"Cansado"};
+            return "Cansado";
         }
     }
 }
