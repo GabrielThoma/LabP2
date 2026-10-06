@@ -1,6 +1,6 @@
 public class RegistroResumos {
     private int numeroDeResumos;
-    private int n;
+    private int index; //eu usaria um nome que ja deixa claro pra oq essa variavel serve (MUDEI)
     private int qtdResumos;
     private String[] temas;
     private String[] resumos;
@@ -9,7 +9,7 @@ public class RegistroResumos {
         this.numeroDeResumos = numeroDeResumos;
         this.temas = new String[numeroDeResumos];
         this.resumos = new String[numeroDeResumos];
-        this.n = 0;
+        this.index = 0;
         this.qtdResumos = 0;
     }
 
@@ -23,9 +23,9 @@ public class RegistroResumos {
             }
         }
 
-        temas[n] = tema;
-        resumos[n] = resumo;
-        n = (n + 1) % numeroDeResumos;
+        temas[index] = tema;
+        resumos[index] = resumo;
+        index = (index + 1) % numeroDeResumos;
 
         if (qtdResumos < numeroDeResumos) {
             qtdResumos++;

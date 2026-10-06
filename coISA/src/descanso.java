@@ -13,9 +13,9 @@ public class descanso {
         }
 
         if ( this.HorasDescanso / this.NumeroSemanas >= 26) {
-            return "Descansado";
+            return "descansado";
         } else {
-            return "Cansado";
+            return "cansado"; //não seria melhor deixa "cansado" tbm pra ficar igual o outro (MUDEI)
         }
     }
 }

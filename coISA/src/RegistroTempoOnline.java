@@ -1,6 +1,6 @@
 public class RegistroTempoOnline {
     private String nomeDisciplina;
-    private int tempoEsperado;
+    private final int tempoEsperado;
     private int tempoCorrido;
 
     public RegistroTempoOnline(String nomeDisciplina) {
@@ -19,7 +19,8 @@ public class RegistroTempoOnline {
     public boolean atingiuMetaTempoOnline() {
         return this.tempoCorrido >= this.tempoEsperado;
     }
-    @Override public String toString() {
+    @Override
+    public String toString() {
         return this.nomeDisciplina + " " + this.tempoCorrido + "/" + this.tempoEsperado;
     }
 }

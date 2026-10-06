@@ -34,7 +34,8 @@ public class Disciplina {
         return calculaMedia() >= 7.0;
     }
 
-    @Override public String toString() {
+    @Override
+    public String toString() {
         return this.nomeDisciplina + " " + this.horasEstudo + " "
                 + calculaMedia() + " " + Arrays.toString(this.notas);
     }
