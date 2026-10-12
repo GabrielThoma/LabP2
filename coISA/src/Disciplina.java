@@ -1,7 +1,7 @@
 import java.util.Arrays;
 
 /**
- * Representa uma disciplina cursada pelo estudante, guardando informacoes
+ * Representa uma disciplina cursada pelo estudante, guardando informaoes
  * de horas estudadas e as notas obtidas no semestre.
  *
  * @author GabrielThoma
@@ -19,7 +19,7 @@ public class Disciplina {
     private int horasEstudo;
 
     /**
-     * Array que armazena as notas atingidas.
+     * Array que armazena as notas atingidas
      */
     private double[] notas;
 
@@ -38,7 +38,7 @@ public class Disciplina {
     }
 
     /**
-     * Construtor que permite definir uma quantidade personalizada de notas.
+     * Construtor que permite definir uma quantidade personalizada de notas .
      *
      * @param nomeDisciplina o nome da disciplina
      * @param numNotas quantidade total de notas

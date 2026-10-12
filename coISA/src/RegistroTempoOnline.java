@@ -7,7 +7,7 @@
 public class RegistroTempoOnline {
 
     /**
-     * Nome da disciplina monitorada.
+     * Nome da  disciplina monitorada.
      */
     private String nomeDisciplina;
 
@@ -22,7 +22,7 @@ public class RegistroTempoOnline {
     private int tempoCorrido;
 
     /**
-     * Construtor padrao que define a meta de tempo em 120 minutos por padrao.
+     * Construtor padrao que define a meta de tempo em  120 minutos por padrao.
      *
      * @param nomeDisciplina o nome da materia
      */
@@ -34,7 +34,7 @@ public class RegistroTempoOnline {
      * Construtor que permite definir o nome da disciplina e a meta customizada de tempo.
      *
      * @param nomeDisciplina o nome da materia
-     * @param tempoOnlineEsperado meta de tempo online em minutos
+     * @param tempoOnlineEsperado meta de tempo online em minutos.
      */
     public RegistroTempoOnline(String nomeDisciplina, int tempoOnlineEsperado) {
         this.nomeDisciplina = nomeDisciplina;

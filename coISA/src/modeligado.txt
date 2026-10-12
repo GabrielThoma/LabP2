@@ -60,5 +60,5 @@ RegistroResumos
 + conta():int
 + temResumo(tema:String):boolean
 + busca(chaveDeBusca:String):String[]
-- ordenarLexicograficamente(array:String[]):void
+- ordenar(array:String[]):void
 ---

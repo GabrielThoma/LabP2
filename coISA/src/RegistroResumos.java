@@ -12,7 +12,7 @@ public class RegistroResumos {
     private int numeroDeResumos;
 
     /**
-     * Indice atual para insercao no array (controle de fila circular).
+     * Indice atual para insercao no array.
      */
     private int index; //eu usaria um nome que ja deixa claro pra oq essa variavel serve (MUDEI)
 
@@ -34,7 +34,7 @@ public class RegistroResumos {
     /**
      * Construtor que inicializa o registro com uma quantidade limite de resumos.
      *
-     * @param numeroDeResumos limite maximo de resumos a serem armazenados
+     * @param numeroDeResumos limite maximo de resmos a serem armazenados
      */
     public RegistroResumos(int numeroDeResumos) {
         this.numeroDeResumos = numeroDeResumos;
@@ -126,7 +126,7 @@ public class RegistroResumos {
 
     /**
      * Busca resumos cujo conteúdo contenha a chave de busca (ignorando maiúsculas/minúsculas).
-     * Retorna um array com os temas dos resumos encontrados em ordem lexicográfica.
+     * Retorna um array com os temas dos resumos encontrados em ordem alfabetica .
      *
      * @param chaveDeBusca termo usado para pesquisar nos resumos
      * @return array de String ordenado com os temas encontrados
@@ -156,14 +156,14 @@ public class RegistroResumos {
             }
         }
 
-        // 3. Ordena os temas em ordem lexicográfica (alfabética)
+        // 3. Ordena os temas em ordem alfabética
         ordenar(resultados);
 
         return resultados;
     }
 
     /**
-     * Metodo auxiliar de ordenação (Bubble Sort) em ordem alfabética.
+     * Metodo auxiliar ordena em ordem alfabética.
      *
      * @param array o array de Strings a ser ordenado
      */
