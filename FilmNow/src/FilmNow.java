@@ -1,5 +1,3 @@
-package FilmNow;
-
 /**
  * Sistema que mantém os seus filmes prediletos. Podem existir 100 filmes.
  *

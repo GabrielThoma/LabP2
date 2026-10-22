@@ -1,5 +1,3 @@
-package FilmNow;
-
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
@@ -200,6 +198,8 @@ public class MainFilmNow {
 
         System.out.print("Local> ");
         String local = scanner.nextLine();
+
+        System.out.println("FILME ADICIONADO");
 
         fn.cadastraFilme(posicao, nome, ano, local);
     }

@@ -1,5 +1,3 @@
-package FilmNow;
-
 /**
  * Representa um Filme no sistema.
  */
@@ -17,6 +15,9 @@ public class Filme {
 
     public String getNome() {
         return this.nome;
+    }
+    public String getAno() {
+        return this.ano;
     }
 
     @Override
