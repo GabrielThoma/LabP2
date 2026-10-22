@@ -1,7 +1,5 @@
 package FilmNow;
 
-import filmnow.FilmNow;
-
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
@@ -15,7 +13,7 @@ import java.util.Scanner;
 public class MainFilmNow {
 
     public static void main(String[] args) {
-        filmnow.FilmNow fn = new FilmNow();
+        FilmNow fn = new FilmNow();
 
         System.out.println("Carregando filmes ...");
         try {
@@ -44,7 +42,6 @@ public class MainFilmNow {
      * @param scanner Para captura da opção do usuário/a.
      * @return O comando escolhido.
      */
-
     private static String menu(Scanner scanner) {
         System.out.println(
                 "\n---\nMENU\n" +
@@ -100,38 +97,77 @@ public class MainFilmNow {
      *
      * @param fn O sistema FilmNow a ser manipulado.
      */
-    private static void mostrarFilmes(filmnow.FilmNow fn) {
-
+    private static void mostrarFilmes(FilmNow fn) {
         String[] filmes = fn.getFilmes();
         for (int i = 0; i < filmes.length; i++) {
             if (filmes[i] != null) {
-                System.out.println(formataFilme(i, filmes[i]));
+                // Soma 1 pois os arrays em Java começam no índice 0, mas para o usuário começa no 1
+                System.out.println(formataFilme(i + 1, filmes[i]));
             }
         }
     }
 
+    /**
+     * Imprime a lista de filmes marcados como Hot (HotList).
+     *
+     * @param fn O sistema FilmNow a ser manipulado.
+     */
     private static void exibirHotList(FilmNow fn) {
-
         String[] filmesHot = fn.getFilmesHot();
         for (int i = 0; i < filmesHot.length; i++) {
             if (filmesHot[i] != null) {
-                System.out.println(formataFilme(i, filmesHot[i]));
+                System.out.println(formataFilme(i + 1, filmesHot[i]));
             }
         }
-        }
+    }
 
-        private static void atribuirHotList(FilmNow fn, Scanner scanner)
+    /**
+     * Atribui um filme previamente cadastrado à HotList.
+     *
+     * @param fn O sistema FilmNow a ser manipulado.
+     * @param scanner Scanner para capturar entradas.
+     */
+    private static void atribuirHotList(FilmNow fn, Scanner scanner) {
+        System.out.print("\nQual filme (posição no sistema)> ");
+        int posicaoFilme = scanner.nextInt();
+        System.out.print("Qual posição na HotList (1 a 10)> ");
+        int posicaoHotList = scanner.nextInt();
+        scanner.nextLine(); // Limpa o buffer
+
+        fn.adicionarHotList(posicaoFilme, posicaoHotList);
+    }
+
+    /**
+     * Remove um filme da HotList.
+     *
+     * @param fn O sistema FilmNow a ser manipulado.
+     * @param scanner Scanner para capturar entradas.
+     */
+    private static void removerHotList(FilmNow fn, Scanner scanner) {
+        System.out.print("\nQual posição na HotList remover (1 a 10)> ");
+        int posicaoHotList = scanner.nextInt();
+        scanner.nextLine(); // Limpa o buffer
+
+        fn.removerHotList(posicaoHotList);
+    }
+
     /**
      * Imprime os detalhes de um dos filmes.
      *
      * @param fn O sistema FilmNow a ser manipulado.
-     * @param scanner Scanner para capturar qual contato.
+     * @param scanner Scanner para capturar qual filme.
      */
-    private static void detalharFilme(filmnow.FilmNow fn, Scanner scanner) {
+    private static void detalharFilme(FilmNow fn, Scanner scanner) {
         System.out.print("\nQual filme> ");
         int posicao = scanner.nextInt();
-        String filme = fn.getFilme(posicao);
-        System.out.println("Dados do filme:\n" + filme);
+        scanner.nextLine(); // Limpa o buffer
+
+        String filme = fn.getDetalhesFilme(posicao);
+        if (filme != null) {
+            System.out.println("Dados do filme:\n" + filme);
+        } else {
+            System.out.println("POSIÇÃO INVÁLIDA");
+        }
     }
 
     /**
@@ -149,17 +185,22 @@ public class MainFilmNow {
      * Cadastra um filme no sistema.
      *
      * @param fn O sistema FilmNow a ser manipulado.
-     * @param scanner Scanner para pedir informações do contato.
+     * @param scanner Scanner para pedir informações do filme.
      */
-    private static void adicionaFilme(filmnow.FilmNow fn, Scanner scanner) {
+    private static void adicionaFilme(FilmNow fn, Scanner scanner) {
         System.out.print("\nPosição no sistema> ");
         int posicao = scanner.nextInt();
-        System.out.print("\nNome> ");
-        String nome = scanner.next();
-        System.out.print("\nAno> ");
-        String ano = scanner.next();
-        System.out.print("\nLocal> ");
-        String local = scanner.next();
+        scanner.nextLine(); // Limpa o buffer após ler o int
+
+        System.out.print("Nome> ");
+        String nome = scanner.nextLine();
+
+        System.out.print("Ano> ");
+        String ano = scanner.nextLine();
+
+        System.out.print("Local> ");
+        String local = scanner.nextLine();
+
         fn.cadastraFilme(posicao, nome, ano, local);
     }
 
@@ -178,9 +219,8 @@ public class MainFilmNow {
      * @param fn O sistema FilmNow a ser populado com os dados.
      * @throws IOException Caso o arquivo não exista ou não possa ser lido.
      */
-    private static void carregaFilmes(String arquivoFilmes, filmnow.FilmNow fn) throws FileNotFoundException, IOException {
-        filmnow.LeitorFilmNow leitor = new filmnow.LeitorFilmNow();
-
+    private static void carregaFilmes(String arquivoFilmes, FilmNow fn) throws FileNotFoundException, IOException {
+        LeitorFilmNow leitor = new LeitorFilmNow();
         int carregados =  leitor.carregaContatos(arquivoFilmes, fn);
         System.out.println("Carregamos " + carregados + " registros.");
     }

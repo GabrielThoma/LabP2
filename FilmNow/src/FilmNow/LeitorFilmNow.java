@@ -1,5 +1,5 @@
 
-package filmnow;
+package FilmNow;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -28,7 +28,7 @@ public class LeitorFilmNow {
      * @throws IOException Caso não tenhamos permissão de ler o arquivo.
      * @throws FileNotFoundException Caso o arquivo não exista.
      */
-    public int carregaContatos(String arquivoFilmes, filmnow.FilmNow fn) throws FileNotFoundException, IOException {
+    public int carregaContatos(String arquivoFilmes, FilmNow fn) throws FileNotFoundException, IOException {
         int carregados = 0;
 
         try (BufferedReader br = new BufferedReader(new FileReader(arquivoFilmes))) {
@@ -54,7 +54,7 @@ public class LeitorFilmNow {
      * @param campos As informações lidas do csv.
      * @param fn O sistema FilmNow a manipular.
      */
-    private void processaLinhaCsvFilmes(String[] campos, filmnow.FilmNow fn) {
+    private void processaLinhaCsvFilmes(String[] campos, FilmNow fn) {
         int posicao = Integer.parseInt(campos[COLUNA_POSICAO]);
         String nome = campos[COLUNA_NOME].trim();
         String ano = campos[COLUNA_ANO].trim();
