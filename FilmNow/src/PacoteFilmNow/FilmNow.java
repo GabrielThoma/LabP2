@@ -1,3 +1,7 @@
+package PacoteFilmNow;
+
+import static PacoteFilmNow.Filme.adicionarPlataforma;
+
 /**
  * Sistema que mantém os seus filmes prediletos. Podem existir 100 filmes.
  *
@@ -9,7 +13,7 @@ public class FilmNow {
     private static final int TAMANHO = 100;
     private static final int TAMANHO_HOTLIST = 10;
 
-    private Filme[] filmes;
+    private static Filme[] filmes;
     private Filme[] filmesHot;
 
     /**
@@ -60,7 +64,14 @@ public class FilmNow {
         }
         return null;
     }
+    public static void adicionaPlataforma(int index, String plataforma, int posicao) {
+        filmes[index].adicionarPlataforma(plataforma, posicao);
+    }
 
+    public static void removePlataforma(int index, int plataforma) {
+        filmes[index].removerPlataforma(plataforma);
+
+    }
     /**
      * Adiciona um filme em uma posição. Se já existir filme na posição, sobrescreve o anterior.
      * @param posicao Posição do filme (1 a 100).

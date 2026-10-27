@@ -18,5 +18,16 @@ public class FilmeTest {
         String msg = "Esperando Nome e Ano";
         assertEquals( "Avatar, 2009", this.filmeBase.getNome() + "," + " " + this.filmeBase.getAno(), msg);
     }
+    @Test
+    public void testNomeNull() {
+        try {
+            Filme filmeInvalido = new Filme(null, “2009”, “Disney+”);
+            fail("Uma exceção era esperada ao passar nome nulo");
+        } catch (NullPointerException npe) {
+            assertEquals("FILME NULO", npe.getMessage());
+        }
+    }
+
+
 }
 

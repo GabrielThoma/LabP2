@@ -1,3 +1,5 @@
+package PacoteFilmNow;
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
@@ -49,6 +51,8 @@ public class MainFilmNow {
                         "(E)Exibir HotList\n" +
                         "(H)Atribuir Hot\n" +
                         "(R)Remover Hot\n" +
+                        "(W)Adicionar Plataforma\n" +
+                        "(Q)Remover Plataforma\n" +
                         "(S)Sair\n" +
                         "\n" +
                         "Opção> ");
@@ -81,6 +85,12 @@ public class MainFilmNow {
                 break;
             case "R":
                 removerHotList(fn, scanner);
+                break;
+            case "W":
+                addPlataforma(fn, scanner);
+                break;
+            case "Q":
+                removePlataforma(fn, scanner);
                 break;
             case "S":
                 sai();
@@ -204,6 +214,22 @@ public class MainFilmNow {
         fn.cadastraFilme(posicao, nome, ano, local);
     }
 
+    public static void addPlataforma(FilmNow fn, Scanner scanner ){
+        System.out.println("Qual Filme?");
+        int filme = scanner.nextInt();
+        System.out.println("Qual Plataforma?");
+        String plataforma = scanner.nextLine();
+        System.out.println("Qual Posição?");
+        int posicao = scanner.nextInt();
+        fn.adicionaPlataforma(filme, plataforma, posicao);
+    }
+    public static void removePlataforma(FilmNow fn, Scanner scanner) {
+        System.out.println("Qual Filme?");
+        int filme = scanner.nextInt();
+        System.out.println("Qual Plataforma?");
+        int plataforma = scanner.nextInt();
+        fn.removePlataforma(filme, plataforma);
+    }
     /**
      * Sai da aplicação.
      */
