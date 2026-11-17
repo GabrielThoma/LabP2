@@ -1,11 +1,12 @@
 package Sistema_PRW;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 public class Sistema_PRW {
 
     HashMap<String, Cliente> clientes = new HashMap<>();
-    HashMap<String, Restaurante> restaurantes = new HashMap<>();
+    LinkedHashMap<String, Restaurante> restaurantes = new LinkedHashMap<>();
 
     public boolean adicionarRestaurante(String prato, String nome) {
         if (restaurantes.containsKey(nome)){
@@ -28,18 +29,24 @@ public class Sistema_PRW {
     }
 
     public void visitarRestaurante(String emailCliente, String nomeRestaurante) {
+        Cliente c = clientes.get(emailCliente);
+        Restaurante r = restaurantes.get(nomeRestaurante);
+        c.addRestaurante(r);
+        r.addCliente(c);
 
     }
 
     public void visitarRestaurante(String emailCliente, String nomeRestaurante, String comentario) {
 
+
     }
 
     public double obtemGastoCliente(String emailCliente) {
-
+        return clientes.get(emailCliente).getGastos();
     }
 
     public String[] listarClientesRestaurante(String nomeRestaurante) {
+        return restaurantes.get(nomeRestaurante).getClientes();
 
     }
 
@@ -55,7 +62,14 @@ public class Sistema_PRW {
     }
 
     public String melhorPrato() {
-
+        int maisVotos = 0;
+        String restauranteMaisVotado = "";
+        for (Restaurante r : restaurantes.values()){
+            if (r.getQtdVotos() > maisVotos){
+                maisVotos = r.getQtdVotos();
+                restauranteMaisVotado = r.getNome();
+            }
+        } return restauranteMaisVotado;
     }
 
     public String[] listarLivroVisitas(String nomeRestaurante) {

@@ -20,11 +20,8 @@ public class Cliente {
         this.pratoFav = pratoFav;
     }
 
-    public String votarNoRestaurante(Restaurante restaurante){
-        if (restaurante.podeVotar()){
-            restaurante.addVoto();
-            return "Voto registrado com sucesso!";
-        }
+    public double getGastos() {
+        return gastos = restaurantesVisitados.size() * 89.90;
     }
 
     public String getPratoFav(){
@@ -33,5 +30,9 @@ public class Cliente {
 
     public String getNome() {
         return nome;
+    }
+
+    public void addRestaurante(Restaurante r){
+        restaurantesVisitados.add(r);
     }
 }

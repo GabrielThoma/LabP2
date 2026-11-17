@@ -2,10 +2,11 @@ package Sistema_PRW;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 
 public class Restaurante {
 
-    private HashSet<Cliente> clientes = new HashSet<>();
+    private LinkedHashSet<Cliente> clientes = new LinkedHashSet<>();
     private String nome;
     private String prato;
     private final double VALOR = 89.90;
@@ -18,6 +19,20 @@ public class Restaurante {
 
     public void addVoto(){
         qtdVotos++;
+    }
+
+    public String[] getClientes(){
+        int index = 0;
+        String[] clientesArray = new String[clientes.size()];
+        for (Cliente c : clientes){
+            clientesArray[index] = c.getNome();
+            index++;
+        }
+        return clientesArray;
+    }
+
+    public void addCliente(Cliente c){
+        clientes.add(c);
     }
 
     public String getPrato(){
@@ -36,5 +51,13 @@ public class Restaurante {
             return true;
         }
         return false;
+    }
+
+    public int getQtdVotos() {
+        return qtdVotos;
+    }
+
+    public String getNome() {
+        return nome;
     }
 }
