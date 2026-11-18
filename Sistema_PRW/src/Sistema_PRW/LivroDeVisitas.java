@@ -1,45 +1,28 @@
 package Sistema_PRW;
 
 import java.time.LocalDate;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
+import java.util.*;
 
 public class LivroDeVisitas {
 
-    private Restaurante restaurante;
-    private HashSet<Cliente> clientes = new HashSet<>();
-    private HashMap<Cliente, LocalDate> datas = new HashMap<>();
-    private HashMap<Cliente, String> comentarios = new HashMap<>();
+    private ArrayList<Visita> visitas = new ArrayList<>();
 
-    public LivroDeVisitas(Restaurante r, LocalDate d, Cliente c){
-        this.restaurante = r;
-        datas.put(c,d);
+
+    public void addVisita(LocalDate data, Cliente c, String comentario){
+        visitas.add(new Visita(data, c, comentario));
     }
 
-    public LivroDeVisitas(Restaurante r, LocalDate d, Cliente c, String comentario){
-        this.restaurante = r;
-        datas.put(c,d);
-        comentarios.put(c,comentario);
-    }
-
-    public void addCliente(Cliente c) {
-        clientes.add(c);
-    }
-
-    public void addData(Cliente c, LocalDate data){
-        this.datas.put(c, data);
-    }
-
-    public void addComentario(Cliente c, String comentario) {
-        this.comentarios.put(c, comentario);
-    }
-
-    public String listarInfos() {
-        for (Cliente c : clientes) {
-            System.out.println("Cliente:" + c + "\n Data:" + datas.get(c) + "Comentário: " + comentarios.get(c));
+    public String[] listar(){
+        return listar(visitas.size());
         }
-        return "Todos os dados.";
+
+    public String[] listar(int n) {
+        if (n < 0) n = 0;
+        int inicio = Math.max(0, visitas.size() - n);
+        String[] resultado = new String[visitas.size() - inicio];
+        for (int i = inicio; i < visitas.size(); i++) {
+            resultado[i - inicio] = visitas.get(i).listarInfos();
+        }
+        return resultado;
     }
 }
