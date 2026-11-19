@@ -22,7 +22,26 @@ public class LivroDeVisitas {
         String[] resultado = new String[visitas.size() - inicio];
         for (int i = inicio; i < visitas.size(); i++) {
             resultado[i - inicio] = visitas.get(i).listarInfos();
-        }
+          }
         return resultado;
+     }
+
+    public int getTotalVisitas() {
+        return visitas.size();
     }
-}
+
+    public int contarVisitas(Cliente c) {
+        int contador = 0;
+        for (Visita v : visitas) {
+            if (v.getCliente().equals(c)) {
+                contador++;
+            }
+        }
+        return contador;
+          }
+    }
+
+
+
+
+

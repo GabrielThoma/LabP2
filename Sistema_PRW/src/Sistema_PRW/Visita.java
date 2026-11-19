@@ -16,15 +16,15 @@ public class Visita {
 
     public LocalDate getData() {
         return data;
-    }
+        }
 
     public String getComentario() {
         return comentario;
-    }
+      }
 
     public Cliente getCliente() {
         return cliente;
-    }
+            }
 
     public String listarInfos() {
         String info = "Cliente: " + cliente.getNome() + " | Data: " + data;
@@ -32,5 +32,10 @@ public class Visita {
             info += " | Comentário: " + comentario;
         }
         return info;
+      }
     }
-}
+
+
+
+
+

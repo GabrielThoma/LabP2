@@ -16,27 +16,29 @@ public class Restaurante {
     public Restaurante(String nome, String prato) {
         this.prato = prato;
         this.nome = nome;
-    }
+            }
 
     public void addVoto(){
         qtdVotos++;
-    }
+       }
 
     public void addCliente(Cliente c){
         clientes.add(c);
-    }
+        }
 
     public String getPrato(){
         return prato;
-    }
+     }
 
     public boolean podeVotar(Cliente cliente){
         return clientes.contains(cliente);
-    }
+        }
 
     public int getQtdVotos() {
         return qtdVotos;
     }
+
+
 
     public String getNome() {
         return nome;
@@ -50,6 +52,22 @@ public class Restaurante {
         if (qtdVotos >0) {
             qtdVotos--;
         }
+    }
+    public int getTotalVisitas() {
+        return livro.getTotalVisitas();
+    }
+
+    public int getQtdClientes() {
+        return clientes.size();
+    }
+
+
+    public double getReceita() {
+        return getTotalVisitas() * VALOR;
+    }
+
+    public LinkedHashSet<Cliente> getListaClientes() {
+        return clientes;
     }
 
     public String[] getClientes() {
@@ -65,3 +83,10 @@ public class Restaurante {
         return resultado;
     }
 }
+
+
+
+
+
+
+
